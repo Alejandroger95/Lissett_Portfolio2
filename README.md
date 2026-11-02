@@ -2,7 +2,7 @@
 
 Portfolio web de eventos y producción de Lissett Gayoso, pensado para su paso al sector de eventos y diseño de espacios retail.
 
-Esta es la **versión 2**: eventos como una tira de círculos que avanza en cámara lenta con el scroll, cursor personalizado, anillos 3D de fondo y una sección de habilidades con pruebas reales de su CV.
+Esta es la **versión 2**: eventos como una tira de círculos que avanza en cámara lenta con el scroll, cursor personalizado, anillos 3D de fondo y una sección de habilidades respaldadas por su experiencia.
 
 ## Cómo verlo
 
