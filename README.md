@@ -35,7 +35,7 @@ El CV descargable (`CV_Lissett_Gayoso_2026.pdf`, en la raíz) es el que descarga
 
 ## Pendiente de completar
 
-Los textos entre `[corchetes]` en `index.html` son datos sin confirmar: fechas, funciones concretas y el nombre del máster.
+Los textos entre `[corchetes]` en `index.html` son datos sin confirmar: fechas y funciones concretas.
 
 ## Comportamiento
 
