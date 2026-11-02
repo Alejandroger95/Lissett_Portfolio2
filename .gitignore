@@ -1,8 +1,16 @@
-# Mac
+# Mac y Windows
 .DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
 
 # Node
 node_modules/
 
-# Logs
+# Logs y secretos
 *.log
+.env
