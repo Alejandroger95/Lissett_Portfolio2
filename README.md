@@ -28,7 +28,6 @@ img/            Fotos (ver abajo)
 | `evento-5.jpg` | Brunch Electronik y San Isidro |
 | `evento-6.jpg` | Eventos privados en Big Mamma |
 | `evento-7.jpg` | Torneos y galas en Casino Atlantic City |
-| `evento-8.jpg` | Proyecto de máster: espacios retail |
 | `foto-lissett.jpg` | Retrato para la sección "Sobre mí" |
 
 Conviene que todas las fotos de eventos tengan la **misma proporción** (por ejemplo 3:2), al menos 1200 px de ancho y menos de 300 KB cada una. Si falta alguna, la página muestra un recuadro de color en su lugar.
