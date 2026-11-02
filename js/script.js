@@ -96,22 +96,90 @@
         followCursor()
     }
 
-    // Túnel: cada evento es una capa que se acerca en 3D al hacer scroll
-    const tunnel = document.getElementById('eventos')
-    const world = document.getElementById('tunnel-world')
-    if (!tunnel || !world || reduced) return
+    // Eventos: tira de círculos que avanza en cámara lenta con el scroll
+    const reel = document.getElementById('eventos')
+    const list = reel ? reel.querySelector('.event-list') : null
+    if (!reel || !list || reduced) return
 
-    root.classList.add('tunnel-on')
+    root.classList.add('reel-on')
 
-    const items = [...world.querySelectorAll('.tunnel-item')]
-    const hudIndex = document.getElementById('hud-index')
-    const hudBar = document.getElementById('hud-bar')
-    const GAP = 1200
+    const cards = [...list.querySelectorAll('.event-card')]
+    const count = cards.length
+    const track = document.getElementById('reel-track')
+    const photoBox = document.getElementById('reel-photo')
+    const copy = document.getElementById('reel-copy')
+    const metaEl = document.getElementById('reel-meta')
+    const textEl = document.getElementById('reel-text')
+    const noteEl = document.getElementById('reel-note')
+    const tagsEl = document.getElementById('reel-tags')
+    const numEl = document.getElementById('reel-num')
+    const arcEl = document.getElementById('reel-arc')
+    const world = document.getElementById('reel-world')
+    const ARC = 289.03
+    const TRAVEL = 3600
     const PERSPECTIVE = 900
-    const travel = (items.length - 1) * GAP
-    const random = seeded(7)
+    const pad = n => String(n).padStart(2, '0')
 
-    const rings = Array.from({ length: 21 }, (_, i) => {
+    const events = cards.map(card => {
+        const img = card.querySelector('img')
+        const bracket = card.querySelector('.desc').textContent.match(/\[[^\]]*\]/)
+        return {
+            short: card.dataset.short,
+            statement: card.dataset.statement,
+            meta: card.querySelector('.meta').textContent,
+            note: bracket ? bracket[0] : '',
+            tags: [...card.querySelectorAll('.tags li')].map(li => li.textContent),
+            src: img.getAttribute('src'),
+            alt: img.alt
+        }
+    })
+
+    const arrowSvg = '<svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h21M16 1l6 6-6 6"/></svg>'
+    const nodes = []
+    const arrows = []
+    const photos = []
+
+    events.forEach((ev, i) => {
+        const node = document.createElement('div')
+        node.className = 'node'
+        node.dataset.cursor = 'Ver'
+        node.textContent = ev.short
+        node.addEventListener('click', () => {
+            const span = reel.offsetHeight - window.innerHeight
+            const top = reel.getBoundingClientRect().top + window.scrollY + (i / (count - 1)) * span
+            window.scrollTo({ top, behavior: 'smooth' })
+        })
+        track.appendChild(node)
+        nodes.push(node)
+
+        if (i < count - 1) {
+            const arrow = document.createElement('div')
+            arrow.className = 'arrow'
+            arrow.innerHTML = arrowSvg
+            track.appendChild(arrow)
+            arrows.push(arrow)
+        }
+
+        const item = document.createElement('div')
+        item.className = 'reel-photo-item'
+        const media = document.createElement('div')
+        media.className = 'media'
+        const img = document.createElement('img')
+        img.alt = ev.alt
+        img.src = ev.src
+        const placeholder = document.createElement('span')
+        placeholder.className = 'media-ph'
+        placeholder.textContent = `Añade aquí la foto: ${ev.src}`
+        const mark = () => media.classList.add('no-img')
+        img.addEventListener('error', mark)
+        media.append(img, placeholder)
+        item.appendChild(media)
+        photoBox.appendChild(item)
+        photos.push(item)
+    })
+
+    const random = seeded(7)
+    const rings = Array.from({ length: 18 }, (_, i) => {
         const el = document.createElement('div')
         const glow = i % 7 === 3
         el.className = 't-ring' + (glow ? ' glow' : i % 4 === 0 ? ' accent' : '')
@@ -119,16 +187,45 @@
         el.style.width = `${size}vmin`
         el.style.height = `${size}vmin`
         el.style.margin = `${-size / 2}vmin 0 0 ${-size / 2}vmin`
-        world.prepend(el)
+        world.appendChild(el)
         return {
             el,
             x: (random() - 0.5) * 100,
             y: (random() - 0.5) * 80,
-            z: -random() * (travel + 2600) + 400
+            z: -random() * (TRAVEL + 2600) + 400
         }
     })
 
-    tunnel.style.height = `${items.length * 125 + 100}vh`
+    reel.style.height = `${count * 40 + 100}vh`
+
+    let active = -1
+    let swapTimer
+
+    const setActive = index => {
+        if (index === active) return
+        const first = active === -1
+        active = index
+        nodes.forEach((node, i) => node.classList.toggle('is-active', i === index))
+        photos.forEach((item, i) => item.classList.toggle('on', i === index))
+        numEl.textContent = pad(index + 1)
+
+        const apply = () => {
+            const ev = events[index]
+            metaEl.textContent = ev.meta
+            textEl.textContent = ev.statement
+            noteEl.textContent = ev.note
+            tagsEl.innerHTML = ev.tags.map(tag => `<li>${tag}</li>`).join('')
+            copy.classList.remove('out')
+        }
+
+        clearTimeout(swapTimer)
+        if (first) {
+            apply()
+        } else {
+            copy.classList.add('out')
+            swapTimer = setTimeout(apply, 220)
+        }
+    }
 
     const tilt = { x: 0, y: 0, tx: 0, ty: 0 }
     window.addEventListener('mousemove', e => {
@@ -136,43 +233,57 @@
         tilt.ty = (e.clientY / window.innerHeight - 0.5) * 2
     })
 
-    let progress = 0
+    let nodeWidth = 0
+    let nodeStep = 0
+    const measure = () => {
+        nodeWidth = nodes[0].offsetWidth
+        nodeStep = nodes[1].offsetLeft - nodes[0].offsetLeft
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    window.addEventListener('load', measure)
+
+    let position = 0
 
     const render = () => {
-        const rect = tunnel.getBoundingClientRect()
-        const span = tunnel.offsetHeight - window.innerHeight
-        const target = clamp(-rect.top / span, 0, 1)
-        const active = rect.bottom > -200 && rect.top < window.innerHeight + 200
+        const rect = reel.getBoundingClientRect()
+        const span = reel.offsetHeight - window.innerHeight
+        const t = clamp(-rect.top / span, 0, 1)
+        const visible = rect.bottom > -200 && rect.top < window.innerHeight + 200
 
-        if (active) {
-            progress = Math.abs(target - progress) < 0.00005 ? target : lerp(progress, target, 0.09)
+        if (visible) {
+            // Cada evento se detiene un momento antes de pasar al siguiente
+            const raw = t * (count - 1)
+            const base = Math.floor(raw)
+            const target = base + smooth(0.3, 0.7, raw - base)
+            position = Math.abs(target - position) < 0.0004 ? target : lerp(position, target, 0.08)
+
+            if (!nodeStep) measure()
+            track.style.transform = `translate3d(${(window.innerWidth / 2 - nodeWidth / 2 - position * nodeStep).toFixed(1)}px, 0, 0)`
+
+            nodes.forEach((node, i) => {
+                const distance = Math.abs(i - position)
+                node.style.opacity = (1 - 0.78 * smooth(0.2, 2.4, distance)).toFixed(3)
+                node.style.transform = `scale(${(1 - 0.1 * smooth(0, 2, distance)).toFixed(3)})`
+            })
+            arrows.forEach((arrow, i) => {
+                arrow.style.opacity = (1 - 0.8 * smooth(0.3, 2.6, Math.abs(i + 0.5 - position))).toFixed(3)
+            })
+
+            setActive(clamp(Math.round(position), 0, count - 1))
+            arcEl.style.strokeDashoffset = (ARC * (1 - position / (count - 1))).toFixed(2)
+
             tilt.x = lerp(tilt.x, finePointer ? tilt.tx : 0, 0.06)
             tilt.y = lerp(tilt.y, finePointer ? tilt.ty : 0, 0.06)
             world.style.transform = `rotateX(${(-tilt.y * 2.5).toFixed(3)}deg) rotateY(${(tilt.x * 4).toFixed(3)}deg)`
 
-            const camera = progress * travel
-            const narrow = window.innerWidth < 768
-
-            items.forEach((el, i) => {
-                const z = camera - i * GAP
-                const leaving = i === 0 ? [PERSPECTIVE * 0.45, PERSPECTIVE * 0.95] : [PERSPECTIVE * 0.1, PERSPECTIVE * 0.5]
-                const opacity = smooth(-GAP * 0.85, -GAP * 0.3, z) * (1 - smooth(leaving[0], leaving[1], z))
-                const x = narrow ? 0 : Number(el.dataset.x || 0)
-                el.style.opacity = opacity.toFixed(3)
-                el.style.visibility = opacity > 0.01 ? 'visible' : 'hidden'
-                el.style.transform = `translate3d(calc(-50% + ${x}vw), -50%, ${z.toFixed(1)}px)`
-            })
-
+            const camera = (position / (count - 1)) * TRAVEL
             rings.forEach(ring => {
                 const z = camera + ring.z
                 const opacity = smooth(-3600, -1400, z) * (1 - smooth(PERSPECTIVE * 0.2, PERSPECTIVE * 0.7, z))
                 ring.el.style.opacity = opacity.toFixed(3)
                 ring.el.style.transform = `translate3d(${ring.x}vw, ${ring.y}vh, ${z.toFixed(1)}px)`
             })
-
-            const current = clamp(Math.round(camera / GAP), 0, items.length - 1)
-            hudIndex.textContent = String(current).padStart(2, '0')
-            hudBar.style.transform = `scaleX(${progress.toFixed(4)})`
         }
 
         requestAnimationFrame(render)

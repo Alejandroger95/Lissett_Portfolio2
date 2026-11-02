@@ -29,6 +29,7 @@
         <nav>
             <ul>
                 <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
                 <li><a href="#contacto">Contacto</a></li>
@@ -59,135 +60,172 @@
             <p class="scroll-hint">Scroll para explorar</p>
         </section>
 
-        <section id="eventos" class="tunnel" aria-label="Eventos y proyectos">
-            <div class="tunnel-sticky">
-                <div class="tunnel-stage">
-                    <div class="tunnel-world" id="tunnel-world">
+        <section id="eventos" class="reel" aria-labelledby="eventos-title">
+            <h2 class="reel-title" id="eventos-title">Eventos y proyectos</h2>
 
-                        <article class="tunnel-item intro">
-                            <h2>Eventos y proyectos</h2>
-                            <p>Ocho experiencias de protocolo, producción y hospitalidad. Sigue haciendo scroll para atravesarlas.</p>
-                        </article>
+            <div class="reel-sticky" aria-hidden="true">
+                <div class="reel-bg"><div class="reel-world" id="reel-world"></div></div>
 
-                        <article class="tunnel-item event" data-x="-16">
-                            <div class="media">
-                                <img src="img/evento-1.jpg" alt="Premios Goya">
-                                <span class="media-ph">Añade aquí la foto: img/evento-1.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">01</span>
-                                <h3>Premios Goya</h3>
-                                <p class="meta">Prácticas UCJC · 2022–2023</p>
-                                <p class="desc">Apoyo en protocolo institucional y gestión de talentos. [Añadir: edición, tu función exacta y qué tareas llevaste]</p>
-                                <ul class="tags"><li>Protocolo</li><li>Institucional</li><li>Talentos</li></ul>
-                            </div>
-                        </article>
+                <div class="reel-stage">
+                    <div class="reel-row">
+                        <div class="reel-track" id="reel-track"></div>
+                        <div class="reel-counter">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="bg" cx="50" cy="50" r="46"/>
+                                <circle class="arc" id="reel-arc" cx="50" cy="50" r="46" transform="rotate(-90 50 50)"/>
+                            </svg>
+                            <span id="reel-num">01</span>
+                        </div>
+                    </div>
 
-                        <article class="tunnel-item event" data-x="16">
-                            <div class="media">
-                                <img src="img/evento-2.jpg" alt="Madrid Fusión y Tast a la Rambla">
-                                <span class="media-ph">Añade aquí la foto: img/evento-2.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">02</span>
-                                <h3>Madrid Fusión y Tast a la Rambla</h3>
-                                <p class="meta">Prácticas UCJC · 2022–2023</p>
-                                <p class="desc">Gestión de redes sociales y contenido en tiempo real durante los eventos. [Añadir: cuentas, tipo de contenido y alcance si lo conoces]</p>
-                                <ul class="tags"><li>Gastronomía</li><li>Redes sociales</li><li>Contenido</li></ul>
-                            </div>
-                        </article>
-
-                        <article class="tunnel-item event" data-x="-14">
-                            <div class="media">
-                                <img src="img/evento-3.jpg" alt="Elite Excellence">
-                                <span class="media-ph">Añade aquí la foto: img/evento-3.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">03</span>
-                                <h3>Elite Excellence</h3>
-                                <p class="meta">Federación del Lujo · Prácticas UCJC · 2022–2023</p>
-                                <p class="desc">Asistencia en hospitalidad premium y acciones de marca. [Añadir: marcas implicadas, aforo y tu función]</p>
-                                <ul class="tags"><li>Lujo</li><li>Hospitalidad</li><li>Marca</li></ul>
-                            </div>
-                        </article>
-
-                        <article class="tunnel-item event" data-x="15">
-                            <div class="media">
-                                <img src="img/evento-4.jpg" alt="La Suite Comunicación">
-                                <span class="media-ph">Añade aquí la foto: img/evento-4.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">04</span>
-                                <h3>La Suite Comunicación</h3>
-                                <p class="meta">Prácticas UCJC · 2022–2023</p>
-                                <p class="desc">Apoyo comercial y diseño creativo para el sector lujo. [Añadir: qué piezas o propuestas diseñaste]</p>
-                                <ul class="tags"><li>Diseño creativo</li><li>Lujo</li><li>Comercial</li></ul>
-                            </div>
-                        </article>
-
-                        <article class="tunnel-item event" data-x="-16">
-                            <div class="media">
-                                <img src="img/evento-5.jpg" alt="Brunch Electronik y San Isidro">
-                                <span class="media-ph">Añade aquí la foto: img/evento-5.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">05</span>
-                                <h3>Brunch Electronik y San Isidro</h3>
-                                <p class="meta">Prácticas UCJC · 2022–2023</p>
-                                <p class="desc">Apoyo logístico y producción en campo. [Añadir: montaje, equipo y responsabilidades concretas]</p>
-                                <ul class="tags"><li>Logística</li><li>Producción</li><li>Montaje</li></ul>
-                            </div>
-                        </article>
-
-                        <article class="tunnel-item event" data-x="16">
-                            <div class="media">
-                                <img src="img/evento-6.jpg" alt="Eventos privados en Big Mamma">
-                                <span class="media-ph">Añade aquí la foto: img/evento-6.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">06</span>
-                                <h3>Eventos privados en Big Mamma</h3>
-                                <p class="meta">Big Mamma Group · 2021–2024</p>
-                                <p class="desc">Protocolos de etiqueta internacional con clientes de alto perfil y en eventos privados. [Añadir: nº aproximado de eventos y aforo máximo]</p>
-                                <ul class="tags"><li>Protocolo</li><li>Eventos privados</li><li>Cliente</li></ul>
-                            </div>
-                        </article>
-
-                        <article class="tunnel-item event" data-x="-15">
-                            <div class="media">
-                                <img src="img/evento-7.jpg" alt="Torneos y galas en Casino Atlantic City">
-                                <span class="media-ph">Añade aquí la foto: img/evento-7.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">07</span>
-                                <h3>Torneos y galas en Casino Atlantic City</h3>
-                                <p class="meta">Casino Atlantic City · 2015–2018</p>
-                                <p class="desc">Supervisión de torneos, galas y eventos estratégicos en sala, con cumplimiento de protocolo y de objetivos comerciales, al frente de un equipo de 15 ejecutivos.</p>
-                                <ul class="tags"><li>Galas</li><li>Torneos</li><li>Equipo</li></ul>
-                            </div>
-                        </article>
-
-                        <article class="tunnel-item event" data-x="15">
-                            <div class="media">
-                                <img src="img/evento-8.jpg" alt="Proyecto de máster: espacios retail">
-                                <span class="media-ph">Añade aquí la foto: img/evento-8.jpg</span>
-                            </div>
-                            <div class="body">
-                                <span class="num">08</span>
-                                <h3>Proyecto de máster: espacios retail</h3>
-                                <p class="meta">Universidad Europea · en curso</p>
-                                <p class="desc">[Añadir el proyecto del máster: concepto, plano o moodboard y tu aportación. Es la pieza que demuestra su paso al diseño de espacios.]</p>
-                                <ul class="tags"><li>Retail</li><li>Diseño de espacios</li><li>Máster</li></ul>
-                            </div>
-                        </article>
-
+                    <div class="reel-bottom">
+                        <div class="reel-copy" id="reel-copy">
+                            <p class="reel-meta" id="reel-meta"></p>
+                            <p class="reel-text" id="reel-text"></p>
+                            <p class="reel-note" id="reel-note"></p>
+                            <ul class="reel-tags" id="reel-tags"></ul>
+                        </div>
+                        <div class="reel-photo" id="reel-photo"></div>
                     </div>
                 </div>
 
-                <div class="tunnel-hud" aria-hidden="true">
-                    <span class="hud-label">Eventos y proyectos</span>
-                    <span class="hud-count"><b id="hud-index">00</b> / 08</span>
-                    <span class="hud-progress"><i id="hud-bar"></i></span>
+                <p class="reel-label"><i></i>Eventos y proyectos</p>
+            </div>
+
+            <ol class="event-list">
+                <li class="event-card" data-short="Premios Goya" data-statement="Apoyo en protocolo institucional y gestión de talentos en los Premios Goya.">
+                    <div class="media">
+                        <img src="img/evento-1.jpg" alt="Premios Goya">
+                        <span class="media-ph">Añade aquí la foto: img/evento-1.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">01</span>
+                        <h3>Premios Goya</h3>
+                        <p class="meta">Prácticas UCJC · 2022–2023</p>
+                        <p class="desc">Apoyo en protocolo institucional y gestión de talentos. [Añadir: edición, tu función exacta y qué tareas llevaste]</p>
+                        <ul class="tags"><li>Protocolo</li><li>Institucional</li><li>Talentos</li></ul>
+                    </div>
+                </li>
+
+                <li class="event-card" data-short="Madrid Fusión" data-statement="Gestión de redes sociales y contenido en tiempo real en Madrid Fusión y Tast a la Rambla.">
+                    <div class="media">
+                        <img src="img/evento-2.jpg" alt="Madrid Fusión y Tast a la Rambla">
+                        <span class="media-ph">Añade aquí la foto: img/evento-2.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">02</span>
+                        <h3>Madrid Fusión y Tast a la Rambla</h3>
+                        <p class="meta">Prácticas UCJC · 2022–2023</p>
+                        <p class="desc">Gestión de redes sociales y contenido en tiempo real durante los eventos. [Añadir: cuentas, tipo de contenido y alcance si lo conoces]</p>
+                        <ul class="tags"><li>Gastronomía</li><li>Redes sociales</li><li>Contenido</li></ul>
+                    </div>
+                </li>
+
+                <li class="event-card" data-short="Elite Excellence" data-statement="Asistencia en hospitalidad premium y acciones de marca para la Federación del Lujo.">
+                    <div class="media">
+                        <img src="img/evento-3.jpg" alt="Elite Excellence">
+                        <span class="media-ph">Añade aquí la foto: img/evento-3.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">03</span>
+                        <h3>Elite Excellence</h3>
+                        <p class="meta">Federación del Lujo · Prácticas UCJC · 2022–2023</p>
+                        <p class="desc">Asistencia en hospitalidad premium y acciones de marca. [Añadir: marcas implicadas, aforo y tu función]</p>
+                        <ul class="tags"><li>Lujo</li><li>Hospitalidad</li><li>Marca</li></ul>
+                    </div>
+                </li>
+
+                <li class="event-card" data-short="La Suite" data-statement="Apoyo comercial y diseño creativo para el sector lujo.">
+                    <div class="media">
+                        <img src="img/evento-4.jpg" alt="La Suite Comunicación">
+                        <span class="media-ph">Añade aquí la foto: img/evento-4.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">04</span>
+                        <h3>La Suite Comunicación</h3>
+                        <p class="meta">Prácticas UCJC · 2022–2023</p>
+                        <p class="desc">Apoyo comercial y diseño creativo para el sector lujo. [Añadir: qué piezas o propuestas diseñaste]</p>
+                        <ul class="tags"><li>Diseño creativo</li><li>Lujo</li><li>Comercial</li></ul>
+                    </div>
+                </li>
+
+                <li class="event-card" data-short="Brunch Electronik" data-statement="Apoyo logístico y producción en campo en Brunch Electronik y San Isidro.">
+                    <div class="media">
+                        <img src="img/evento-5.jpg" alt="Brunch Electronik y San Isidro">
+                        <span class="media-ph">Añade aquí la foto: img/evento-5.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">05</span>
+                        <h3>Brunch Electronik y San Isidro</h3>
+                        <p class="meta">Prácticas UCJC · 2022–2023</p>
+                        <p class="desc">Apoyo logístico y producción en campo. [Añadir: montaje, equipo y responsabilidades concretas]</p>
+                        <ul class="tags"><li>Logística</li><li>Producción</li><li>Montaje</li></ul>
+                    </div>
+                </li>
+
+                <li class="event-card" data-short="Big Mamma" data-statement="Protocolos de etiqueta internacional con clientes de alto perfil y en eventos privados.">
+                    <div class="media">
+                        <img src="img/evento-6.jpg" alt="Eventos privados en Big Mamma">
+                        <span class="media-ph">Añade aquí la foto: img/evento-6.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">06</span>
+                        <h3>Eventos privados en Big Mamma</h3>
+                        <p class="meta">Big Mamma Group · 2021–2024</p>
+                        <p class="desc">Protocolos de etiqueta internacional con clientes de alto perfil y en eventos privados. [Añadir: nº aproximado de eventos y aforo máximo]</p>
+                        <ul class="tags"><li>Protocolo</li><li>Eventos privados</li><li>Cliente</li></ul>
+                    </div>
+                </li>
+
+                <li class="event-card" data-short="Casino Atlantic City" data-statement="Supervisión de torneos, galas y eventos estratégicos en sala, al frente de un equipo de 15 ejecutivos.">
+                    <div class="media">
+                        <img src="img/evento-7.jpg" alt="Torneos y galas en Casino Atlantic City">
+                        <span class="media-ph">Añade aquí la foto: img/evento-7.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">07</span>
+                        <h3>Torneos y galas en Casino Atlantic City</h3>
+                        <p class="meta">Casino Atlantic City · 2015–2018</p>
+                        <p class="desc">Supervisión de torneos, galas y eventos estratégicos en sala, con cumplimiento de protocolo y de objetivos comerciales, al frente de un equipo de 15 ejecutivos.</p>
+                        <ul class="tags"><li>Galas</li><li>Torneos</li><li>Equipo</li></ul>
+                    </div>
+                </li>
+
+                <li class="event-card" data-short="Máster retail" data-statement="Proyecto del máster sobre espacios retail, en la Universidad Europea.">
+                    <div class="media">
+                        <img src="img/evento-8.jpg" alt="Proyecto de máster: espacios retail">
+                        <span class="media-ph">Añade aquí la foto: img/evento-8.jpg</span>
+                    </div>
+                    <div class="body">
+                        <span class="num">08</span>
+                        <h3>Proyecto de máster: espacios retail</h3>
+                        <p class="meta">Universidad Europea · en curso</p>
+                        <p class="desc">[Añadir el proyecto del máster: concepto, plano o moodboard y tu aportación. Es la pieza que demuestra su paso al diseño de espacios.]</p>
+                        <ul class="tags"><li>Retail</li><li>Diseño de espacios</li><li>Máster</li></ul>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="habilidades" class="skills">
+            <p class="eyebrow reveal">Cómo trabajo</p>
+            <h2 class="reveal">Habilidades con pruebas</h2>
+            <div class="skills-grid">
+                <div class="skill reveal">
+                    <div class="skill-circle">Trabajo en equipo</div>
+                    <p>Dirigí un equipo de 15 ejecutivos en Casino Atlantic City.</p>
+                </div>
+                <div class="skill reveal">
+                    <div class="skill-circle">Mejora continua</div>
+                    <p>Creé el manual de protocolos de atención y el mapa de experiencia del cliente en Clínica Urozen.</p>
+                </div>
+                <div class="skill reveal">
+                    <div class="skill-circle">Creatividad</div>
+                    <p>Diseño creativo para el sector lujo en La Suite Comunicación y plan de fidelización en Den Group.</p>
+                </div>
+                <div class="skill reveal">
+                    <div class="skill-circle">Orientación a resultados</div>
+                    <p>100 % del objetivo en la Universidad Europea, con 85.000 € facturados en un mes.</p>
                 </div>
             </div>
         </section>
