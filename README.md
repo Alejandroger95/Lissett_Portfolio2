@@ -17,17 +17,16 @@ js/script.js    Cursor, tira de eventos, anillos 3D y animaciones
 img/            Fotos (ver abajo)
 ```
 
-## Fotos que hay que añadir en `img/`
+## Fotos en `img/`
 
 | Archivo | Contenido |
 |---|---|
 | `evento-1.jpg` | Premios Goya |
 | `evento-2.jpg` | Madrid Fusión y Tast a la Rambla |
-| `evento-3.jpg` | Elite Excellence |
-| `evento-4.jpg` | La Suite Comunicación |
-| `evento-5.jpg` | Brunch Electronik y San Isidro |
-| `evento-6.jpg` | Eventos privados en Big Mamma |
-| `evento-7.jpg` | Torneos y galas en Casino Atlantic City |
+| `evento-3.jpg` | La Suite Comunicación |
+| `evento-4.jpg` | Brunch Electronik y San Isidro |
+| `evento-5.jpg` | Eventos privados en Big Mamma |
+| `evento-6.jpg` | Torneos y galas en Casino Atlantic City |
 | `foto-lissett.jpg` | Retrato para la sección "Sobre mí" |
 
 Conviene que todas las fotos de eventos tengan la **misma proporción** (por ejemplo 3:2), al menos 1200 px de ancho y menos de 300 KB cada una. Si falta alguna, la página muestra un recuadro de color en su lugar.
