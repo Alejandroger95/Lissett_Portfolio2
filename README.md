@@ -31,7 +31,7 @@ img/            Fotos (ver abajo)
 
 Conviene que todas las fotos de eventos tengan la **misma proporción** (por ejemplo 3:2), al menos 1200 px de ancho y menos de 300 KB cada una. Si falta alguna, la página muestra un recuadro de color en su lugar.
 
-También hay que añadir el `CV_Lissett_Gayoso_2026.pdf` en la raíz, que es el que descarga el botón "Descargar CV".
+El CV descargable (`CV_Lissett_Gayoso_2026.pdf`, en la raíz) es el que descarga el botón "Descargar CV".
 
 ## Pendiente de completar
 
