@@ -122,12 +122,11 @@
 
     const events = cards.map(card => {
         const img = card.querySelector('img')
-        const bracket = card.querySelector('.desc').textContent.match(/\[[^\]]*\]/)
         return {
             short: card.dataset.short,
             statement: card.dataset.statement,
             meta: card.querySelector('.meta').textContent,
-            note: bracket ? bracket[0] : '',
+            note: card.dataset.role || '',
             tags: [...card.querySelectorAll('.tags li')].map(li => li.textContent),
             src: img.getAttribute('src'),
             alt: img.alt

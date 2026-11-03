@@ -33,10 +33,6 @@ Conviene que todas las fotos de eventos tengan la **misma proporción** (por eje
 
 El CV descargable (`CV_Lissett_Gayoso_2026.pdf`, en la raíz) es el que descarga el botón "Descargar CV".
 
-## Pendiente de completar
-
-Los textos entre `[corchetes]` en `index.html` son datos sin confirmar: fechas y funciones concretas.
-
 ## Comportamiento
 
 - Con movimiento reducido en el sistema, o sin JavaScript, los eventos se muestran como una lista normal.

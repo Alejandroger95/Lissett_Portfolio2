@@ -729,6 +729,14 @@ ul{
   }
 }
 
+@media(max-height: 720px) and (min-width: 769px){
+  .reel-text{
+    font-size: clamp(1.15rem, 2.1vw, 2rem);
+  }
+  .reel-bottom{
+    gap: 2rem;
+  }
+}
 @media(max-height: 520px){
   .reel-stage{
     --d: 24vh;
