@@ -648,8 +648,8 @@ ul{
 }
 .skills-grid{
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem 2rem;
   margin-top: 4rem;
 }
 .skill{
