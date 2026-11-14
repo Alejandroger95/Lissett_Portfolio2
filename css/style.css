@@ -981,3 +981,13 @@ footer{
     transition: none;
   }
 }
+
+.about-text .about-lead{
+  font-size: 1.15em;
+}
+.about-text .about-tags{
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
