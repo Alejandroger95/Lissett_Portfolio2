@@ -652,6 +652,9 @@ ul{
   gap: 2.5rem 2rem;
   margin-top: 4rem;
 }
+.skills-grid > .skill:last-child:nth-child(3n + 1){
+  grid-column: 2;
+}
 .skill{
   display: grid;
   gap: 1.4rem;
@@ -691,6 +694,11 @@ ul{
 @media(max-width: 900px){
   .skills-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .skills-grid > .skill:last-child:nth-child(3n + 1){
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 50%;
   }
 }
 @media(max-width: 768px){
